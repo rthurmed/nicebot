@@ -36,7 +36,9 @@ client.on(actions.MESSAGE, msg => {
   ) {
     const occurences = (message.match(REGEXP) || []).length
     nicemeter = nicemeter + occurences
-    trees += ' ' + plant()
+    for (i in [...Array(occurences).keys()]) {
+      trees += ' ' + plant()
+    }
     msg.reply(`NOICE! 👌. One tree will be planted each time i hear the word "${EXPRESSION}"\n${trees}`);
   }
 });
