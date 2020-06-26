@@ -14,6 +14,8 @@ const REGEXP = /nice/g
 let me
 let nicemeter = 0
 
+let trees = ''
+
 client.on(actions.READY, () => {
   console.log(`Logged in as ${client.user.tag}!`);
   me = client.user.username
@@ -34,15 +36,7 @@ client.on(actions.MESSAGE, msg => {
   ) {
     const occurences = (message.match(REGEXP) || []).length
     nicemeter = nicemeter + occurences
-
-    let trees = ''
-    let i = 0
-
-    while (i < nicemeter) {
-      trees += ' ' + plant()
-      i++
-    }
-
+    trees += ' ' + plant()
     msg.reply(`NOICE! 👌. One tree will be planted each time i hear the word "${EXPRESSION}"\n${trees}`);
   }
 });
