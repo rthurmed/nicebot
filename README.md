@@ -13,11 +13,11 @@ copy `.env.sample` to `.env` and fill the `BOT_SECRET` with your bot token
 ## Running
 
 ```
-node index.js
+npm start
 ```
 
 ## Hot-reload
 
 ```
-npm start
+npm run dev
 ```
