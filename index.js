@@ -48,6 +48,7 @@ client.on(actions.MESSAGE, msg => {
 
 client.login(process.env.BOT_SECRET);
 
+// Creates a server to trick heroku into keeping the bot online
 const server = http.createServer(async (req, res) => {
   res.writeHead(200, {'Content-Type': 'application/json'});
   res.write(await JSON.stringify({ message: 'I\'m alive' }))
