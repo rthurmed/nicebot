@@ -34,6 +34,8 @@ client.on(actions.MESSAGE, msg => {
     msg.author.username !== me &&
     message.includes(EXPRESSION)
   ) {
+    console.log(`${new Date().toISOString()}: ${msg.author.username} said nice`);
+
     const occurences = (message.match(REGEXP) || []).length
     nicemeter = nicemeter + occurences
     for (i in [...Array(occurences).keys()]) {
