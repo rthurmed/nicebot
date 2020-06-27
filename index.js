@@ -1,3 +1,4 @@
+const http = require('http')
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
@@ -46,3 +47,11 @@ client.on(actions.MESSAGE, msg => {
 });
 
 client.login(process.env.BOT_SECRET);
+
+const server = http.createServer(async (req, res) => {
+  res.writeHead(200, {'Content-Type': 'application/json'});
+  res.write(await JSON.stringify({ message: 'I\'m alive' }))
+  res.end()
+})
+
+server.listen(process.env.PORT || 3000)
